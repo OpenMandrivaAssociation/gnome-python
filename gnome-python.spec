@@ -4,7 +4,7 @@
 
 Summary: The sources for the PyGNOME Python extension module
 Name: gnome-python
-Version: 2.18.0
+Version: 2.18.2
 Release: %mkrel 1
 Source: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/gnome-python-%{version}.tar.bz2
 URL: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/
@@ -152,5 +152,3 @@ rm -rf %buildroot
 %{_includedir}/gnome-python-2.0/pygnomevfsbonobo.h
 %defattr(644,root,root,755)
 %doc examples/vfs
-
-
