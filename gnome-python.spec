@@ -20,6 +20,7 @@ BuildRequires: libgnomecanvas2-devel
 BuildRequires: libbonoboui2-devel
 BuildRequires: libGConf2-devel >= 2.11.1
 BuildRequires: avahi-glib-devel avahi-client-devel
+BuildRequires: libgcrypt-devel
 BuildRequires: autoconf2.5 automake1.9
 Requires: pygtk2.0 >= %pygtk
 %if %{haveorbit}
