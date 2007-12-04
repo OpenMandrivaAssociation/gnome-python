@@ -4,7 +4,7 @@
 
 Summary: The sources for the PyGNOME Python extension module
 Name: gnome-python
-Version: 2.20.1
+Version: 2.21.0
 Release: %mkrel 1
 Source: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/gnome-python-%{version}.tar.bz2
 URL: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/
@@ -87,6 +87,15 @@ Requires: gnome-vfs2 >= 2.0.2
 %description gnomevfs
 This module contains a wrapper that allows the use of gnome-vfs via python.
 
+%package devel
+Summary: Development files of %name
+Group: Development/Python
+Requires: %name = %version
+Conflicts: %name < 2.21.0
+
+%description devel
+Development files of the Gnome Python wrappers.
+
 %prep
 %setup -q -n gnome-python-%{version}
 
@@ -113,10 +122,6 @@ rm -rf %buildroot
 %if %{haveorbit}
 %py_platsitedir/gtk-2.0/gnome/ui.so
 %endif
-%{_libdir}/pkgconfig/gnome-python-2.0.pc
-%dir %{_datadir}/pygtk/2.0/defs
-%{_datadir}/pygtk/2.0/defs/*.defs
-%{_datadir}/pygtk/2.0/argtypes
 
 %if %{haveorbit}
 %files canvas
@@ -149,7 +154,15 @@ rm -rf %buildroot
 %py_platsitedir/gtk-2.0/gnome/vfs*
 %py_platsitedir/gtk-2.0/gnomevfs
 %{_libdir}/gnome-vfs-2.0/modules/libpythonmethod.so
-%{_includedir}/gnome-python-2.0/pygnomevfs.h
-%{_includedir}/gnome-python-2.0/pygnomevfsbonobo.h
 %defattr(644,root,root,755)
 %doc examples/vfs
+
+%files devel
+%defattr(-,root,root)
+%{_includedir}/gnome-python-2.0/pygnomevfs.h
+%{_includedir}/gnome-python-2.0/pygnomevfsbonobo.h
+%doc %_datadir/gtk-doc/html/pygnomevfs
+%{_libdir}/pkgconfig/gnome-python-2.0.pc
+%dir %{_datadir}/pygtk/2.0/defs
+%{_datadir}/pygtk/2.0/defs/*.defs
+%{_datadir}/pygtk/2.0/argtypes
