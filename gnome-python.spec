@@ -10,6 +10,7 @@ Source: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/gnome-python-%{versio
 URL: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/
 License: LGPL
 Group: Development/GNOME and GTK+
+BuildRoot: %{_tmppath}/gnome-python-root
 BuildRequires: pygtk2.0-devel >= %pygtk
 BuildRequires: python-devel >= 2.2
 BuildRequires: libgtk+2-devel >= 2.0.0
