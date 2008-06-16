@@ -4,7 +4,7 @@
 
 Summary: The sources for the PyGNOME Python extension module
 Name: gnome-python
-Version: 2.22.0
+Version: 2.22.1
 Release: %mkrel 1
 Source: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/gnome-python-%{version}.tar.bz2
 URL: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/
@@ -35,15 +35,6 @@ bindings for GNOME called PyGNOME.
 PyGNOME is an extension module for Python that provides access to the
 base GNOME libraries, so you have access to more widgets, a simple
 configuration interface, and metadata support.
-
-%package capplet
-Version: %{version}
-Summary: Python bindings for GNOME Panel applets
-Group: Development/GNOME and GTK+
-
-%description capplet
-This module contains a wrapper that allows GNOME Control Center
-capplets to be in Python.
 
 %package canvas
 Version: %{version}
