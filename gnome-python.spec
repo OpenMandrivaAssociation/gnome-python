@@ -4,7 +4,7 @@
 
 Summary: The sources for the PyGNOME Python extension module
 Name: gnome-python
-Version: 2.22.2
+Version: 2.22.3
 Release: %mkrel 1
 Source: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/gnome-python-%{version}.tar.bz2
 URL: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/
