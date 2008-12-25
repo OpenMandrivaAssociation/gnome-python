@@ -5,7 +5,7 @@
 Summary: The sources for the PyGNOME Python extension module
 Name: gnome-python
 Version: 2.22.3
-Release: %mkrel 1
+Release: %mkrel 2
 Source: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/gnome-python-%{version}.tar.bz2
 URL: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/
 License: LGPL
@@ -21,7 +21,6 @@ BuildRequires: libbonoboui2-devel
 BuildRequires: libGConf2-devel >= 2.11.1
 BuildRequires: avahi-glib-devel avahi-client-devel
 BuildRequires: libgcrypt-devel
-BuildRequires: autoconf2.5 automake1.9
 Requires: pygtk2.0 >= %pygtk
 %if %{haveorbit}
 Requires: %name-bonobo
