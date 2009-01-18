@@ -5,8 +5,9 @@
 Summary: The sources for the PyGNOME Python extension module
 Name: gnome-python
 Version: 2.25.1
-Release: %mkrel 1
+Release: %mkrel 2
 Source: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/gnome-python-%{version}.tar.bz2
+Patch0: gnome-python-2.25.1-linkage.patch
 URL: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/
 License: LGPLv2+
 Group: Development/GNOME and GTK+
@@ -88,8 +89,10 @@ Development files of the Gnome Python wrappers.
 
 %prep
 %setup -q -n gnome-python-%{version}
+%patch0 -p0
 
 %build
+autoreconf
 %configure2_5x
 %make
 
