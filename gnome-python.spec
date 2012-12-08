@@ -5,7 +5,7 @@
 Summary: The sources for the PyGNOME Python extension module
 Name: gnome-python
 Version: 2.28.1
-Release: %mkrel 3
+Release: %mkrel 5
 Source: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/gnome-python-%{version}.tar.bz2
 URL: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/
 License: LGPLv2+
@@ -14,11 +14,11 @@ BuildRoot: %{_tmppath}/gnome-python-root
 BuildRequires: python-gobject-devel >= 2.17.0
 BuildRequires: pygtk2.0-devel >= %pygtk
 BuildRequires: python-devel >= 2.2
-BuildRequires: libgtk+2-devel >= 2.0.0
+BuildRequires: pkgconfig(gtk+-2.0) >= 2.0.0
 BuildRequires: libgnome2-devel
 BuildRequires: libgnomeui2-devel
 BuildRequires: libgnomecanvas2-devel
-BuildRequires: libbonoboui2-devel
+BuildRequires: pkgconfig(libbonoboui-2.0)
 BuildRequires: libGConf2-devel >= 2.11.1
 BuildRequires: avahi-glib-devel avahi-client-devel
 BuildRequires: libgcrypt-devel
@@ -97,7 +97,7 @@ Development files of the Gnome Python wrappers.
 %install
 rm -rf $RPM_BUILDROOT
 %makeinstall_std
-find %{buildroot} -name '*.la' -exec rm {} \;
+find $RPM_BUILD_ROOT -name '*.la' -exec rm {} \;
 
 %clean
 rm -rf %buildroot
@@ -156,3 +156,233 @@ rm -rf %buildroot
 %dir %{_datadir}/pygtk/2.0/defs
 %{_datadir}/pygtk/2.0/defs/*.defs
 %{_datadir}/pygtk/2.0/argtypes
+
+
+%changelog
+* Tue May 03 2011 Oden Eriksson <oeriksson@mandriva.com> 2.28.1-3mdv2011.0
++ Revision: 664881
+- mass rebuild
+
+* Mon Nov 01 2010 Funda Wang <fwang@mandriva.org> 2.28.1-2mdv2011.0
++ Revision: 591290
+- rebuild for py2.7
+
+* Wed Mar 31 2010 GÃ¶tz Waschk <waschk@mandriva.org> 2.28.1-1mdv2010.1
++ Revision: 530221
+- update to new version 2.28.1
+
+* Tue Mar 16 2010 Oden Eriksson <oeriksson@mandriva.com> 2.28.0-2mdv2010.1
++ Revision: 521489
+- rebuilt for 2010.1
+
+* Mon Sep 21 2009 GÃ¶tz Waschk <waschk@mandriva.org> 2.28.0-1mdv2010.0
++ Revision: 446621
+- update to new version 2.28.0
+
+* Wed May 27 2009 GÃ¶tz Waschk <waschk@mandriva.org> 2.27.1-2mdv2010.0
++ Revision: 380111
+- rebuild for new gdl
+
+* Mon May 11 2009 GÃ¶tz Waschk <waschk@mandriva.org> 2.27.1-1mdv2010.0
++ Revision: 374376
+- new version
+- bump pygobject dep
+
+* Tue Apr 14 2009 GÃ¶tz Waschk <waschk@mandriva.org> 2.26.1-1mdv2009.1
++ Revision: 366982
+- update to new version 2.26.1
+
+* Sat Mar 14 2009 GÃ¶tz Waschk <waschk@mandriva.org> 2.26.0-1mdv2009.1
++ Revision: 355138
+- update to new version 2.26.0
+
+* Mon Feb 02 2009 GÃ¶tz Waschk <waschk@mandriva.org> 2.25.90-2mdv2009.1
++ Revision: 336410
+- fukc se BS
+- new version
+- drop merged patch
+
+* Fri Jan 30 2009 Funda Wang <fwang@mandriva.org> 2.25.1-3mdv2009.1
++ Revision: 335644
+- rework linkage patch to be submitted upstream
+
+* Sun Jan 18 2009 Funda Wang <fwang@mandriva.org> 2.25.1-2mdv2009.1
++ Revision: 330841
+- fix linkage
+
+* Sun Jan 18 2009 Funda Wang <fwang@mandriva.org> 2.25.1-1mdv2009.1
++ Revision: 330835
+- New version 2.25.1
+
+* Thu Dec 25 2008 Adam Williamson <awilliamson@mandriva.org> 2.22.3-2mdv2009.1
++ Revision: 318620
+- rebuild for python 2.6
+- drop unnecessary autotools br
+
+* Mon Sep 22 2008 GÃ¶tz Waschk <waschk@mandriva.org> 2.22.3-1mdv2009.0
++ Revision: 286598
+- new version
+
+* Sun Sep 21 2008 GÃ¶tz Waschk <waschk@mandriva.org> 2.22.2-1mdv2009.0
++ Revision: 286339
+- new version
+
+* Mon Jun 16 2008 GÃ¶tz Waschk <waschk@mandriva.org> 2.22.1-1mdv2009.0
++ Revision: 219379
+- new version
+- clean spec file
+
+* Sun Mar 09 2008 GÃ¶tz Waschk <waschk@mandriva.org> 2.22.0-1mdv2008.1
++ Revision: 183053
+- new version
+
+* Sun Feb 24 2008 GÃ¶tz Waschk <waschk@mandriva.org> 2.21.1-1mdv2008.1
++ Revision: 174266
+- new version
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Tue Dec 04 2007 GÃ¶tz Waschk <waschk@mandriva.org> 2.21.0-1mdv2008.1
++ Revision: 115243
+- new version
+- split out devel package
+
+* Sat Nov 24 2007 GÃ¶tz Waschk <waschk@mandriva.org> 2.20.1-1mdv2008.1
++ Revision: 111791
+- new version
+
+* Sun Sep 16 2007 GÃ¶tz Waschk <waschk@mandriva.org> 2.20.0-1mdv2008.0
++ Revision: 88451
+- new version
+
+* Tue Jul 31 2007 GÃ¶tz Waschk <waschk@mandriva.org> 2.19.2-1mdv2008.0
++ Revision: 56952
+- fix buildrequires
+- new version
+
+* Sat Jul 07 2007 GÃ¶tz Waschk <waschk@mandriva.org> 2.19.1-2mdv2008.0
++ Revision: 49450
+- new version
+
+* Tue Apr 17 2007 GÃ¶tz Waschk <waschk@mandriva.org> 2.18.2-1mdv2008.0
++ Revision: 14165
+- new version
+
+
+* Mon Mar 12 2007 GÃ¶tz Waschk <waschk@mandriva.org> 2.18.0-1mdv2007.1
++ Revision: 141949
+- new version
+
+* Sun Feb 25 2007 GÃ¶tz Waschk <waschk@mandriva.org> 2.17.92-1mdv2007.1
++ Revision: 125670
+- new version
+
+* Mon Jan 08 2007 GÃ¶tz Waschk <waschk@mandriva.org> 2.17.2-1mdv2007.1
++ Revision: 106022
+- new version
+
+* Sun Jan 07 2007 GÃ¶tz Waschk <waschk@mandriva.org> 2.17.1-1mdv2007.1
++ Revision: 105300
+- new version
+
+* Tue Nov 28 2006 GÃ¶tz Waschk <waschk@mandriva.org> 2.16.2-3mdv2007.1
++ Revision: 88192
+- bump release
+- fix buildrequires
+- rebuild
+
+* Mon Nov 06 2006 GÃ¶tz Waschk <waschk@mandriva.org> 2.16.2-1mdv2007.1
++ Revision: 76838
+- mkrel
+- Import gnome-python
+
+* Sun Nov 05 2006 Götz Waschk <waschk@mandriva.org> 2.16.2-1
+- bump deps
+- New version 2.16.2
+
+* Wed Sep 06 2006 GÃ¶tz Waschk <waschk@mandriva.org> 2.16.0-1mdv2007.0
+- New version 2.16.0
+
+* Wed Aug 23 2006 GÃ¶tz Waschk <waschk@mandriva.org> 2.15.91-1mdv2007.0
+- New release 2.15.91
+
+* Wed Jul 26 2006 Götz Waschk <waschk@mandriva.org> 2.15.90-1mdv2007.0
+- update file list
+- New release 2.15.90
+
+* Fri Jul 14 2006 Götz Waschk <waschk@mandriva.org> 2.15.4-1mdv2007.0
+- drop the patch
+- New release 2.15.4
+
+* Thu Jul 13 2006 Götz Waschk <waschk@mandriva.org> 2.15.3-3mdv2007.0
+- fix the patch (Oops!)
+
+* Thu Jul 13 2006 Götz Waschk <waschk@mandriva.org> 2.15.3-2mdv2007.0
+- fix build with new gnome-vfs/libbonobo
+
+* Wed Jul 12 2006 GÃ¶tz Waschk <waschk@mandriva.org> 2.15.3-1
+- New release 2.15.3
+
+* Tue Jun 13 2006 GÃ¶tz Waschk <waschk@mandriva.org> 2.15.2-1mdv2007.0
+- New release 2.15.2
+
+* Wed Jun 07 2006 Götz Waschk <waschk@mandriva.org> 2.15.1-1mdv2007.0
+- drop the patch, it is obsolete
+- New release 2.15.1
+
+* Sun Mar 12 2006 GÃ¶tz Waschk <waschk@mandriva.org> 2.12.4-1mdk
+- New release 2.12.4
+
+* Thu Dec 22 2005 GÃ¶tz Waschk <waschk@mandriva.org> 2.12.3-1mdk
+- New release 2.12.3
+- use mkrel
+
+* Thu Dec 01 2005 GÃ¶tz Waschk <waschk@mandriva.org> 2.12.2-1mdk
+- New release 2.12.2
+
+* Fri Oct 21 2005 Frederic Crozat <fcrozat@mandriva.com> 2.12.1-2mdk
+- Fix buildrequires
+
+* Sat Oct 08 2005 Frederic Crozat <fcrozat@mandriva.com> 2.12.0-1mdk
+- Release 2.12.0
+
+* Sun Apr 24 2005 Christiaan Welvaart <cjw@daneel.dyndns.org> 2.10.0-2mdk
+- add some gnome buildrequires
+
+* Sat Apr 23 2005 Frederic Crozat <fcrozat@mandriva.com> 2.10.0-1mdk 
+- Release 2.10.0 (based on Götz Waschk package)
+- drop nautilus, gnomeprint, gtkhtml, applet subpackages
+
+* Mon Dec 27 2004 Goetz Waschk <waschk@linux-mandrake.com> 2.6.2-1mdk
+- New release 2.6.2
+
+* Sun Dec 05 2004 Michael Scherer <misc@mandrake.org> 2.6.1-2mdk
+- Rebuild for new python
+
+* Tue Nov 16 2004 Goetz Waschk <waschk@linux-mandrake.com> 2.6.1-1mdk
+- New release 2.6.1
+
+* Tue Nov 09 2004 Götz Waschk <waschk@linux-mandrake.com> 2.6.0-1mdk
+- requires new pygtk
+- remove all zvt references
+- drop patch 0
+- New release 2.6.0
+
+* Mon Aug 09 2004 Götz Waschk <waschk@linux-mandrake.com> 2.0.3-1mdk
+- fix source URL
+- New release 2.0.3
+
+* Fri May 14 2004 Götz Waschk <waschk@linux-mandrake.com> 2.0.2-3mdk
+- fix deps
+
+* Wed Apr 14 2004 Götz Waschk <waschk@linux-mandrake.com> 2.0.2-2mdk
+- fix buildrequires
+
+* Wed Apr 07 2004 Götz Waschk <waschk@linux-mandrake.com> 2.0.2-1mdk
+- really disable zvt
+- new version
+
