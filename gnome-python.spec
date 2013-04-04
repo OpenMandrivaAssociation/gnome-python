@@ -1,11 +1,12 @@
 %define haveorbit 1
 %define pyorbit 2.0.1
 %define pygtk 2.10.3
+%define _disable_ld_no_undefined 1
 
 Summary: The sources for the PyGNOME Python extension module
 Name: gnome-python
 Version: 2.28.1
-Release: %mkrel 5
+Release: 7
 Source: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/gnome-python-%{version}.tar.bz2
 URL: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/
 License: LGPLv2+
