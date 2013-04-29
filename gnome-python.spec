@@ -6,12 +6,11 @@
 Summary: The sources for the PyGNOME Python extension module
 Name: gnome-python
 Version: 2.28.1
-Release: 7
-Source: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/gnome-python-%{version}.tar.bz2
+Release: 8
+Source0: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/gnome-python-%{version}.tar.bz2
 URL: ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/
 License: LGPLv2+
 Group: Development/GNOME and GTK+
-BuildRoot: %{_tmppath}/gnome-python-root
 BuildRequires: python-gobject-devel >= 2.17.0
 BuildRequires: pygtk2.0-devel >= %pygtk
 BuildRequires: python-devel >= 2.2
@@ -20,7 +19,7 @@ BuildRequires: libgnome2-devel
 BuildRequires: libgnomeui2-devel
 BuildRequires: libgnomecanvas2-devel
 BuildRequires: pkgconfig(libbonoboui-2.0)
-BuildRequires: libGConf2-devel >= 2.11.1
+BuildRequires: pkgconfig(gconf-2.0) >= 2.11.1
 BuildRequires: avahi-glib-devel avahi-client-devel
 BuildRequires: libgcrypt-devel
 Requires: pygtk2.0 >= %pygtk
@@ -96,12 +95,7 @@ Development files of the Gnome Python wrappers.
 %make
 
 %install
-rm -rf $RPM_BUILDROOT
 %makeinstall_std
-find $RPM_BUILD_ROOT -name '*.la' -exec rm {} \;
-
-%clean
-rm -rf %buildroot
 
 %files
 %defattr(644,root,root,755)
