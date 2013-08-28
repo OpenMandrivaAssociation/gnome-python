@@ -8,7 +8,7 @@
 Summary:	The sources for the PyGNOME Python extension module
 Name:		gnome-python
 Version:	2.28.1
-Release:	8
+Release:	9
 License:	LGPLv2+
 Group:		Development/GNOME and GTK+
 Url:		ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/
@@ -56,7 +56,7 @@ Summary:	Python bindings for interacting with bonobo
 Group:		Development/GNOME and GTK+
 Requires:	%{name}-canvas = %{version}-%{release}
 Requires:	pyorbit >= %{pyorbit}
-Requires:	libbonoboui2 >= 2.0.0
+Requires:	%{_lib}bonoboui2_0 >= 2.0.0
 
 %description bonobo
 This module contains a wrapper that allows the creation of bonobo
