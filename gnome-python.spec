@@ -6,7 +6,7 @@
 %define pygtk	2.10.3
 
 Summary:	The sources for the PyGNOME Python extension module
-Name:		gnome-python
+Name:		gnome-python2
 Version:	2.28.1
 Release:	15
 License:	LGPLv2+
@@ -25,7 +25,7 @@ BuildRequires:	pkgconfig(libgnomecanvas-2.0)
 BuildRequires:	pkgconfig(libgnomeui-2.0)
 BuildRequires:	pkgconfig(pygobject-2.0)
 BuildRequires:	pkgconfig(pygtk-2.0)
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python2)
 Requires:	pygtk2.0 >= %{pygtk}
 %if %{haveorbit}
 Requires:	%{name}-bonobo
@@ -90,6 +90,9 @@ Development files of the Gnome Python wrappers.
 %setup -q
 
 %build
+ln -s %{_bindir}/python2 python
+export PATH=`pwd`:$PATH
+export LDFLAGS="$LDFLAGS -lpython2.7" 
 %configure2_5x
 %make
 
@@ -98,35 +101,35 @@ Development files of the Gnome Python wrappers.
 
 %files
 %doc AUTHORS ChangeLog
-%dir %{py_platsitedir}/gtk-2.0/gnome/
-%{py_platsitedir}/gtk-2.0/gnome/__init__.*
-%{py_platsitedir}/gtk-2.0/gnome/_gnome.so
+%dir %{py2_platsitedir}/gtk-2.0/gnome/
+%{py2_platsitedir}/gtk-2.0/gnome/__init__.*
+%{py2_platsitedir}/gtk-2.0/gnome/_gnome.so
 %if %{haveorbit}
-%{py_platsitedir}/gtk-2.0/gnome/ui.so
+%{py2_platsitedir}/gtk-2.0/gnome/ui.so
 %endif
 
 %if %{haveorbit}
 %files canvas
-%{py_platsitedir}/gtk-2.0/gnome/canvas.*
-%{py_platsitedir}/gtk-2.0/gnomecanvas.so
+%{py2_platsitedir}/gtk-2.0/gnome/canvas.*
+%{py2_platsitedir}/gtk-2.0/gnomecanvas.so
 %doc examples/canvas
 %endif
 
 %if %{haveorbit}
 %files bonobo
-%dir %{py_platsitedir}/gtk-2.0/bonobo/
-%{py_platsitedir}/gtk-2.0/bonobo/__init__.*
-%{py_platsitedir}/gtk-2.0/bonobo/*.so
+%dir %{py2_platsitedir}/gtk-2.0/bonobo/
+%{py2_platsitedir}/gtk-2.0/bonobo/__init__.*
+%{py2_platsitedir}/gtk-2.0/bonobo/*.so
 %doc examples/bonobo
 %endif
 
 %files gconf
-%{py_platsitedir}/gtk-2.0/gconf*
+%{py2_platsitedir}/gtk-2.0/gconf*
 %doc examples/gconf
 
 %files gnomevfs
-%{py_platsitedir}/gtk-2.0/gnome/vfs*
-%{py_platsitedir}/gtk-2.0/gnomevfs
+%{py2_platsitedir}/gtk-2.0/gnome/vfs*
+%{py2_platsitedir}/gtk-2.0/gnomevfs
 %{_libdir}/gnome-vfs-2.0/modules/libpythonmethod.so
 %doc examples/vfs
 
