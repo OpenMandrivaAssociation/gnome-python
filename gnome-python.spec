@@ -1,6 +1,6 @@
 %define _disable_ld_no_undefined 1
 %define url_ver %(echo %{version}|cut -d. -f1,2)
-
+%define oname gnome-python
 %define haveorbit 1
 %define pyorbit	2.0.1
 %define pygtk	2.10.3
@@ -12,7 +12,7 @@ Release:	15
 License:	LGPLv2+
 Group:		Development/GNOME and GTK+
 Url:		ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/%{url_ver}/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/%{url_ver}/%{oname}-%{version}.tar.bz2
 
 BuildRequires:	pkgconfig(avahi-client)
 BuildRequires:	pkgconfig(avahi-glib)
@@ -87,7 +87,7 @@ Requires:	%{name} = %{version}
 Development files of the Gnome Python wrappers.
 
 %prep
-%setup -q
+%setup -qn %{oname}-%{version}
 
 %build
 ln -s %{_bindir}/python2 python
