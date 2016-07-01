@@ -8,7 +8,7 @@
 Summary:	The sources for the PyGNOME Python extension module
 Name:		gnome-python2
 Version:	2.28.1
-Release:	15
+Release:	16
 License:	LGPLv2+
 Group:		Development/GNOME and GTK+
 Url:		ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/
@@ -31,6 +31,7 @@ Requires:	pygtk2.0 >= %{pygtk}
 Requires:	%{name}-bonobo
 BuildRequires:	pkgconfig(pyorbit-2) >= %{pyorbit}
 %endif
+%rename 	gnome-python
 
 %description
 The gnome-python package contains the source packages for the Python
@@ -46,6 +47,7 @@ Group:		Development/GNOME and GTK+
 Requires:	libgnomecanvas2 >= 2.0.0
 Requires:	pygtk2.0 >= %{pygtk}
 Requires:	%{name} = %{version}-%{release}
+%rename gnome-python-canvas
 
 %description canvas
 This module contains a wrapper that allows use of the GNOME Canvas
@@ -57,6 +59,7 @@ Group:		Development/GNOME and GTK+
 Requires:	%{name}-canvas = %{version}-%{release}
 Requires:	pyorbit >= %{pyorbit}
 Requires:	%{_lib}bonoboui2_0 >= 2.0.0
+%rename	gnome-python-bonobo
 
 %description bonobo
 This module contains a wrapper that allows the creation of bonobo
@@ -66,6 +69,7 @@ components and the embedding of bonobo components in Python.
 Summary:	Python bindings for interacting with GConf
 Group:		Development/GNOME and GTK+
 Requires:	GConf2 >= 1.1.10
+%rename gnome-python-gconf
 
 %description gconf
 This module contains a wrapper that allows the use of GConf via Python.
@@ -74,6 +78,7 @@ This module contains a wrapper that allows the use of GConf via Python.
 Summary:	Python bindings for interacting with gnome-vfs
 Group:		Development/GNOME and GTK+
 Requires:	gnome-vfs2 >= 2.0.2
+%rename gnome-python-gnomevfs
 
 %description gnomevfs
 This module contains a wrapper that allows the use of gnome-vfs via python.
@@ -82,6 +87,7 @@ This module contains a wrapper that allows the use of gnome-vfs via python.
 Summary:	Development files of %{name}
 Group:		Development/Python
 Requires:	%{name} = %{version}
+%rename gnome-python-devel
 
 %description devel
 Development files of the Gnome Python wrappers.
