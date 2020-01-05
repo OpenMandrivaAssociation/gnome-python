@@ -8,7 +8,7 @@
 Summary:	The sources for the PyGNOME Python extension module
 Name:		gnome-python2
 Version:	2.28.1
-Release:	16
+Release:	17
 License:	LGPLv2+
 Group:		Development/GNOME and GTK+
 Url:		ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/
@@ -26,6 +26,7 @@ BuildRequires:	pkgconfig(libgnomeui-2.0)
 BuildRequires:	pkgconfig(pygobject-2.0)
 BuildRequires:	pkgconfig(pygtk-2.0)
 BuildRequires:	pkgconfig(python2)
+BuildRequires:  pkgconfig(popt)
 Requires:	pygtk2.0 >= %{pygtk}
 %if %{haveorbit}
 Requires:	%{name}-bonobo
@@ -99,11 +100,11 @@ Development files of the Gnome Python wrappers.
 ln -s %{_bindir}/python2 python
 export PATH=`pwd`:$PATH
 export LDFLAGS="$LDFLAGS -lpython2.7" 
-%configure2_5x
-%make
+%configure
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %doc AUTHORS ChangeLog
