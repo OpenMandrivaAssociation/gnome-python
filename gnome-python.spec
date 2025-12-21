@@ -14,6 +14,11 @@ Group:		Development/GNOME and GTK+
 Url:		ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/%{url_ver}/%{oname}-%{version}.tar.bz2
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(avahi-client)
 BuildRequires:	pkgconfig(avahi-glib)
 BuildRequires:	pkgconfig(gconf-2.0) >= 2.11.1
