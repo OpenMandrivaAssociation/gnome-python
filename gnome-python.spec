@@ -8,7 +8,7 @@
 Summary:	The sources for the PyGNOME Python extension module
 Name:		gnome-python2
 Version:	2.28.1
-Release:	17
+Release:	18
 License:	LGPLv2+
 Group:		Development/GNOME and GTK+
 Url:		ftp://ftp.gnome.org/pub/GNOME/sources/gnome-python/
